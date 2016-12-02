@@ -182,6 +182,10 @@ TARGET_COMMON_QTI_COMPONENTS := \
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.rcs.supported=1
 
+# Recovery
+PRODUCT_PACKAGES += \
+    librecovery_updater_xiaomi
+
 # RIL
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.fflag.override.settings_provider_model=false \
