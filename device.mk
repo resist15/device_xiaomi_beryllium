@@ -30,6 +30,7 @@ PRODUCT_PACKAGES += \
     AOSPABerylliumFrameworksOverlay \
     BerylliumCarrierConfigOverlay \
     BerylliumFrameworksOverlay \
+    BerylliumSettingsOverlay \
     BerylliumSystemUIOverlay \
     BerylliumWifiOverlay 
 
