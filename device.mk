@@ -355,5 +355,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
 
+# Zram
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.zram.first_wb_delay_mins=180 \
+    ro.zram.mark_idle_delay_mins=60 \
+    ro.zram.periodic_wb_delay_hours=24
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/beryllium/beryllium-vendor.mk)
