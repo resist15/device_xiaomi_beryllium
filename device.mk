@@ -109,6 +109,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_VENDOR_PROPERTIES += \
     drm.service.enabled=true
 
+# Fastbootd
+PRODUCT_PACKAGES += \
+    fastbootd
+
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.fastbootd.available=true
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.beryllium
