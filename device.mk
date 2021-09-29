@@ -230,6 +230,11 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-service \
     libsensorndkbridge
 
+# SOC
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.soc.manufacturer=Qualcomm \
+    ro.soc.model=SDM845
+
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
