@@ -110,6 +110,11 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.vendor.dpm.loglevel=0 \
     persist.vendor.dpm.nsrm.bkg.evt=3955
 
+# Display Device Config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/display/display_19260591652815745.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_19260591652815745.xml \
+    $(LOCAL_PATH)/configs/display/display_19261151497321857.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_19261151497321857.xml
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey \
