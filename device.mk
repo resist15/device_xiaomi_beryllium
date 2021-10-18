@@ -72,6 +72,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_VENDOR_PROPERTIES += \
     ro.charger.enable_suspend=true
 
+# Control groups and task profiles
+PRODUCT_COPY_FILES += \
+    system/core/libprocessgroup/profiles/cgroups_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
+    system/core/libprocessgroup/profiles/task_profiles_28.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+
 # Data modules
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.data.df.dev_name=rmnet_usb0 \
