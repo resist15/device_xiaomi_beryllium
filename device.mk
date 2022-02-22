@@ -90,10 +90,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
-# Disable vsync for cpu rendered apps
-PRODUCT_SYSTEM_PROPERTIES += \
-    debug.cpurend.vsync=false
-
 # Display post-processing
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.qualcomm.cabl=0 \
