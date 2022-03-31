@@ -31,6 +31,24 @@ BUILD_BROKEN_DUP_RULES := true
 # Display
 TARGET_SCREEN_DENSITY := 440
 
+# Kernel
+BOARD_BOOT_HEADER_VERSION := 1
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA84000
+BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom androidboot.console=ttyMSM0
+BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3
+BOARD_KERNEL_CMDLINE += ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
+BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048
+BOARD_KERNEL_CMDLINE += loop.max_part=7 androidboot.configfs=true
+BOARD_KERNEL_CMDLINE += androidboot.boot_devices=soc/1d84000.ufshc
+BOARD_KERNEL_PAGESIZE := 4096
+BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
+TARGET_KERNEL_CONFIG += beryllium_defconfig
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_APPEND_DTB := true
+TARGET_USES_UNCOMPRESSED_KERNEL := false
+
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67092480
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67092480
