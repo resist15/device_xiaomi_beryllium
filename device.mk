@@ -113,6 +113,13 @@ PRODUCT_SYSTEM_PROPERTIES += \
     sdm.debug.disable_inline_rotator=1 \
     sdm.debug.disable_inline_rotator_secure=1
 
+# HIDL
+PRODUCT_PACKAGES += \
+    libhwbinder \
+    libhidltransport \
+    libhwbinder.vendor \
+    libhidltransport.vendor
+
 # IMS
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.vendor.ims.disableUserAgent=0
