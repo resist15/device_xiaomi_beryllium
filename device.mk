@@ -65,6 +65,10 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.vendor.camera.perfcapture=1 \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera
 
+# Charger
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.charger.enable_suspend=true
+
 # Data modules
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.data.df.dev_name=rmnet_usb0 \
