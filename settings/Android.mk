@@ -13,12 +13,11 @@ LOCAL_DEX_PREOPT := false
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
-    androidx.core_core \
-    androidx.preference_preference \
-    org.lineageos.settings.resources
+    SettingsLib
 
-
-include frameworks/base/packages/SettingsLib/common.mk
+LOCAL_RESOURCE_DIR := \
+    $(LOCAL_PATH)/res \
+    $(TOP)/packages/resources/devicesettings/res
 
 include $(BUILD_PACKAGE)
 
