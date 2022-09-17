@@ -66,6 +66,9 @@ PRODUCT_SYSTEM_PROPERTIES += \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera
 
 # Charger
+PRODUCT_PACKAGES += \
+    libsuspend
+
 PRODUCT_VENDOR_PROPERTIES += \
     ro.charger.enable_suspend=true
 
