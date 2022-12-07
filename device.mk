@@ -68,7 +68,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     camera.disable_zsl_mode=true \
     persist.vendor.camera.perfcapture=1 \
-    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,co.aospa.sense
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -282,6 +282,10 @@ PRODUCT_PACKAGES += \
     BerylliumSettingsOverlay \
     BerylliumSystemUIOverlay \
     BerylliumWifiOverlay 
+
+# Paranoid Sense
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.face.sense_service.camera_id=5
 
 # Permissions
 PRODUCT_COPY_FILES += \
