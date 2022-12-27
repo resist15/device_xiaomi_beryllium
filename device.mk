@@ -28,6 +28,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 PRODUCT_PACKAGES += \
     AOSPABerylliumFrameworksOverlay \
+    BerylliumCarrierConfigOverlay \
     BerylliumFrameworksOverlay \
     BerylliumSystemUIOverlay \
     BerylliumWifiOverlay 
