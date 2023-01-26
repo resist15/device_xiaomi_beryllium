@@ -21,6 +21,10 @@ PRODUCT_COPY_FILES += \
 # Kernel
 TARGET_KERNEL_VERSION := 4.9
 
+# Media
+PRODUCT_SYSTEM_PROPERTIES += \
+    debug.stagefright.omx_default_rank.sw-audio=1
+
 # Native libraries whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
@@ -42,6 +46,7 @@ PRODUCT_PACKAGES += \
 
 # QTI common
 TARGET_COMMON_QTI_COMPONENTS := \
+    media \
     overlay
 
 # Soong namespaces
