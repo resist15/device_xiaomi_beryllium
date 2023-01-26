@@ -25,6 +25,12 @@ TARGET_KERNEL_VERSION := 4.9
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# Overlays
+PRODUCT_PACKAGES += \
+    BerylliumFrameworksOverlay \
+    BerylliumSystemUIOverlay \
+    BerylliumWifiOverlay 
+
 # Protobuf
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat \
