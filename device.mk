@@ -40,6 +40,10 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat \
     libprotobuf-cpp-lite-vendorcompat
 
+# QTI common
+TARGET_COMMON_QTI_COMPONENTS := \
+    overlay
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
