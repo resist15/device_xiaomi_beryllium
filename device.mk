@@ -47,10 +47,18 @@ PRODUCT_PACKAGES += \
 # QTI common
 TARGET_COMMON_QTI_COMPONENTS := \
     media \
-    overlay
+    overlay \
+    wlan
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
+
+# WLAN
+PRODUCT_PACKAGES += \
+    libwpa_client 
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/beryllium/beryllium-vendor.mk)
