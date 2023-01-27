@@ -245,15 +245,20 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite-vendorcompat
 
 # QTI common
-TARGET_COMMON_QTI_COMPONENTS := \
+TARGET_COMMON_QTI_COMPONENTS += \
     audio \
+    av \
     bt \
     display \
     gps \
     init \
     media \
     overlay \
+    perf \
     telephony \
+    usb \
+    vibrator \
+    wfd \
     wlan
 
 # RCS
