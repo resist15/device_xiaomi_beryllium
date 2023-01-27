@@ -53,6 +53,21 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Board Platform
 TARGET_BOARD_PLATFORM := sdm845
 
+# Data modules
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.data.df.dev_name=rmnet_usb0 \
+    persist.vendor.data.mode=concurrent \
+    ro.vendor.use_data_netmgrd=true
+
+# DPM
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    persist.vendor.dpm.loglevel=0 \
+    persist.vendor.dpm.nsrm.bkg.evt=3955
+
+# IMS
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.vendor.ims.disableUserAgent=0
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -88,6 +103,11 @@ PRODUCT_SYSTEM_PROPERTIES += \
 # Native libraries whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
+# Network manager
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.data.iwlan.enable=true \
+    ro.telephony.iwlan_operation_mode=legacy
 
 # Overlays
 PRODUCT_PACKAGES += \
@@ -128,7 +148,26 @@ TARGET_COMMON_QTI_COMPONENTS := \
     init \
     media \
     overlay \
+    telephony \
     wlan
+
+# RCS
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.rcs.supported=1
+
+# RIL
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.fflag.override.settings_provider_model=false \
+    persist.vendor.radio.apm_sim_not_pwdn=1 \
+    persist.vendor.radio.custom_ecc=1 \
+    persist.vendor.radio.flexmap_type=none \
+    persist.vendor.radio.force_on_dc=true \
+    persist.vendor.radio.procedure_bytes=SKIP \
+    persist.vendor.radio.rat_on=combine \
+    persist.vendor.radio.report_codec=1 \
+    persist.vendor.radio.sib16_support=1 \
+    ril.subscription.types=NV,RUIM \
+    ro.com.android.dataroaming=true
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
