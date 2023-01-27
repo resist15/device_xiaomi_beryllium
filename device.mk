@@ -180,6 +180,10 @@ PRODUCT_SYSTEM_PROPERTIES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
 
+# Netflix property
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.netflix.bsp_rev=Q845-14477-1
+
 # Network manager
 PRODUCT_VENDOR_PROPERTIES += \
     persist.vendor.data.iwlan.enable=true \
