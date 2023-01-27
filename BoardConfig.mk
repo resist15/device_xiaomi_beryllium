@@ -8,6 +8,10 @@ BOARD_VENDOR := xiaomi
 
 DEVICE_PATH := device/xiaomi/beryllium
 
+# Audio
+AUDIO_FEATURE_ENABLED_DLKM := false
+TARGET_PROVIDES_AUDIO_EXTNS := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a

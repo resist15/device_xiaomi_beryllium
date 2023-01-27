@@ -4,6 +4,36 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Audio
+PRODUCT_PACKAGES += \
+    android.hardware.audio@5.0-impl:32 \
+    android.hardware.audio.effect@5.0-impl:32 \
+    android.hardware.audio.service \
+    android.hardware.soundtrigger@2.2-impl:32 
+
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/audio/,$(TARGET_COPY_OUT_VENDOR)/etc)
+
+PRODUCT_COPY_FILES += \
+    frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml 
+
+PRODUCT_ODM_PROPERTIES += \
+    ro.vendor.audio.sdk.fluencetype=fluence 
+
+PRODUCT_SYSTEM_PROPERTIES += \
+    audio.deep_buffer.media=true \
+    audio.offload.min.duration.secs=30 \
+    audio.offload.video=true \
+    ro.af.client_heap_size_kbyte=7168 \
+    ro.config.vc_call_vol_steps=11
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.audio.button_jack.profile=volume \
+    persist.vendor.audio.button_jack.switch=0 \
+    ro.vendor.audio.soundfx.usb=true \
+    vendor.audio.noisy.broadcast.delay=600 \
+    vendor.audio.offload.pstimeout.secs=3 
+
 # Board Platform
 TARGET_BOARD_PLATFORM := sdm845
 
@@ -46,6 +76,7 @@ PRODUCT_PACKAGES += \
 
 # QTI common
 TARGET_COMMON_QTI_COMPONENTS := \
+    audio \
     media \
     overlay \
     wlan
