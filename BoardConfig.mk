@@ -32,6 +32,9 @@ TARGET_NO_BOOTLOADER := true
 # Broken Rules
 BUILD_BROKEN_DUP_RULES := true
 
+# Camera
+TARGET_USES_QTI_CAMERA_DEVICE := true
+
 # Display
 TARGET_SCREEN_DENSITY := 440
 

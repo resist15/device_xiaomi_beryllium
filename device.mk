@@ -53,6 +53,18 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Board Platform
 TARGET_BOARD_PLATFORM := sdm845
 
+# Camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl:32 \
+    android.hardware.camera.provider@2.4-service \
+    libdng_sdk.vendor \
+    vendor.qti.hardware.camera.device@1.0.vendor
+
+PRODUCT_SYSTEM_PROPERTIES += \
+    camera.disable_zsl_mode=true \
+    persist.vendor.camera.perfcapture=1 \
+    vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera
+
 # Data modules
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.data.df.dev_name=rmnet_usb0 \
