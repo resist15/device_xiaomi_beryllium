@@ -1,0 +1,334 @@
+import /vendor/etc/init/init.beryllium.power.rc
+
+on early-init
+    # Change ownership of hw_recovery related nodes
+    chown system graphics /sys/kernel/debug/dri/0/debug/dump
+    chown system graphics /sys/kernel/debug/dri/0/debug/recovery_reg
+    chown system graphics /sys/kernel/debug/dri/0/debug/recovery_dbgbus
+    chown system graphics /sys/kernel/debug/dri/0/debug/recovery_vbif_dbgbus
+
+on init
+    write /sys/class/backlight/panel0-backlight/brightness 200
+
+    mkdir /config
+    mount configfs none /config
+    mkdir /config/usb_gadget/g1 0770 shell shell
+    write /config/usb_gadget/g1/bcdUSB 0x0200
+    write /config/usb_gadget/g1/idVendor 0x18d1
+    write /config/usb_gadget/g1/idProduct 0xd001
+    mkdir /config/usb_gadget/g1/strings/0x409 0770 shell shell
+    write /config/usb_gadget/g1/strings/0x409/serialnumber ${ro.serialno}
+    write /config/usb_gadget/g1/strings/0x409/manufacturer ${ro.product.manufacturer}
+    write /config/usb_gadget/g1/strings/0x409/product ${ro.product.model}
+    mkdir /config/usb_gadget/g1/functions/ffs.adb
+    write /config/usb_gadget/g1/os_desc/use 1
+    write /config/usb_gadget/g1/os_desc/b_vendor_code 0x1
+    write /config/usb_gadget/g1/os_desc/qw_sign "MSFT100"
+    setprop sys.usb.configfs 1
+
+    # Boot time FS tune
+    write /sys/block/sda/queue/iostats 0
+    write /sys/block/sda/queue/scheduler cfq
+    write /sys/block/sda/queue/iosched/slice_idle 0
+    write /sys/block/sda/queue/nr_requests 256
+    write /sys/block/sdf/queue/iostats 0
+    write /sys/block/sdf/queue/scheduler cfq
+    write /sys/block/sdf/queue/iosched/slice_idle 0
+    write /sys/block/sdf/queue/nr_requests 256
+    chown system camera /dev/mi-camera-vendor2hal
+    chown system camera /dev/mi-camera-hal2vendor
+    chmod 0660 /dev/mi-camera-vendor2hal
+    chmod 0660 /dev/mi-camera-hal2vendor
+
+on fs
+    wait /dev/block/platform/soc/1d84000.ufshc
+    symlink /dev/block/platform/soc/1d84000.ufshc /dev/block/bootdevice
+    mount_all /vendor/etc/fstab.qcom
+    mkdir /mnt/vendor/persist 0771 root system
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    restorecon_recursive /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/audio 0755 system system
+    mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/fdsd 0777 root root
+    mkdir /mnt/vendor/persist/stability 0755 system system
+    mkdir /mnt/vendor/persist/wlan_bt 0755 system system
+
+on post-fs
+    chmod 0755 /sys/kernel/debug/tracing
+
+    write /dev/ipa 1
+
+on early-boot
+    # Allow subsystem (modem etc) debugging
+    write /sys/kernel/boot_adsp/boot 1
+    write /sys/kernel/boot_cdsp/boot 1
+    write /sys/devices/virtual/npu/msm_npu/boot 1
+    write /sys/kernel/boot_slpi/boot 1
+    write /sys/devices/virtual/cvp/cvp/boot 1
+
+    # SSR Setup
+    write /sys/bus/msm_subsys/devices/subsys0/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys1/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys2/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys3/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys4/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys5/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys6/restart_level RELATED
+    write /sys/bus/msm_subsys/devices/subsys7/restart_level RELATED
+
+    chown system system /mnt/vendor/persist/sensors
+    chown system system /mnt/vendor/persist/sensors/sns.reg
+    chown system system /mnt/vendor/persist/sensors/sensors_list.txt
+    chown system system /mnt/vendor/persist/sensors/registry
+    chown system system /mnt/vendor/persist/sensors/registry/registry
+    chown system system /mnt/vendor/persist/sensors/registry/registry/sensors_registry
+    chown system system /mnt/vendor/persist/sensors/sensors_settings
+    chown system system /mnt/vendor/persist/sensors/registry/sns_reg_config
+    chown system system /mnt/vendor/persist/sensors/registry/sns_reg_version
+    chown system system /mnt/vendor/persist/sensors/registry/config
+    chmod 0664 /mnt/vendor/persist/sensors/sensors_settings
+
+on boot
+    chown system system /sys/kernel/debug/msm_core/enable
+    chown system system /sys/kernel/debug/msm_core/ptable
+    chown system system /sys/kernel/boot_slpi/ssr
+    chown system system /sys/kernel/boot_adsp/ssr
+
+    # Create camera directory
+    mkdir /mnt/vendor/persist/camera 0755 system cameraserver
+
+    # USB controller configuration
+    setprop vendor.usb.rndis.func.name "gsi"
+    setprop vendor.usb.rmnet.func.name "gsi"
+    setprop vendor.usb.rmnet.inst.name "rmnet"
+    setprop vendor.usb.dpl.inst.name "dpl"
+    setprop vendor.usb.controller a600000.dwc3
+    chown system system /sys/class/leds/white/brightness
+    chown system system /sys/class/leds/white/blink
+    chown system system /sys/class/leds/ir_torch/brightness
+    chown cameraserver system /sys/class/leds/ir/brightness
+    chmod 0664 /sys/class/leds/ir/brightness
+    chown system system /sys/class/drm/card0-DSI-1/disp_param
+    chmod 0700 /sys/class/drm/card0-DSI-1/disp_param
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    chown root system /sys/bus/i2c/devices/3-0050/pressure
+    # Sensors log dir
+    mkdir /data/vendor/sensors
+    chown system system /data/vendor/sensors
+    # QTI PowerHAL
+    chown system system /sys/kernel/hbtp/display_pwr
+
+on post-fs-data
+    mkdir /data/vendor/diag 2771 root log
+    mkdir /data/vendor/mac_addr 0770 system wifi
+    mkdir /data/vendor/misc/display 0771 system system
+    mkdir /data/vendor/misc/touch 0771 root system
+    mkdir /data/vendor/nnhal 0700 system system
+    mkdir /data/vendor/tloc 0700 system drmrpc
+    mkdir /data/vendor/thermal 0771 root system
+    mkdir /data/vendor/thermal/config 0771 root system
+    # Create QDMA dropbox
+    mkdir /data/vendor/qdmastats 0700 system system
+    mkdir /data/vendor/qdma 0770 system system
+    mkdir /dev/socket/qdma 0777 system system
+    chmod 2777 /dev/socket/qdma
+
+    # Create directories for Location services
+    mkdir /data/vendor/location 0770 gps gps
+    mkdir /data/vendor/location/mq 0770 gps gps
+    mkdir /data/vendor/location/xtwifi 0770 gps gps
+    mkdir /dev/socket/location 0770 gps gps
+    mkdir /dev/socket/location/mq 0770 gps gps
+    mkdir /dev/socket/location/xtra 0770 gps gps
+    mkdir /data/vendor/location-partner 0770 gps gps
+    mkdir /data/vendor/location-partner/dre 0770 gps gps
+    mkdir /data/vendor/location-partner/ppe 0770 gps gps
+    mkdir /dev/socket/location 0770 gps gps
+    mkdir /dev/socket/location/ehub 0770 gps gps
+
+    # Default enable uicc_se
+    setprop persist.vendor.radio.uicc_se_enabled true
+
+    # Make MTU adjusting
+    write /proc/sys/net/ipv4/tcp_mtu_probing 1
+
+    start vendor.qcrild
+    start vendor.qcrild2
+
+
+on property:ro.boot.usbcontroller=*
+    setprop sys.usb.controller ${ro.boot.usbcontroller}
+
+on property:sys.usb.ffs.ready=1
+    mkdir /config/usb_gadget/g1/configs/b.1 0777 shell shell
+    symlink /config/usb_gadget/g1/configs/b.1 /config/usb_gadget/g1/os_desc/b.1
+    mkdir /config/usb_gadget/g1/configs/b.1/strings/0x409 0770 shell shell
+    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "adb"
+    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f1
+    write /config/usb_gadget/g1/UDC ${sys.usb.controller}
+
+on property:ro.boot.dp=0x0
+    write  /sys/bus/platform/devices/c440000.qcom,spmi:qcom,pm8998@0:qcom,power-on@800/pshold_reboot 7
+
+on property:sys.boot_completed=1
+    write /dev/kmsg "Boot completed "
+
+    # Runtime FS tuning: as we have init boottime setting and kernel patch setting
+    # we should adjust the setting upon boot_complete for runtime performance
+    write /sys/block/sda/queue/nr_requests 128
+    write /sys/block/sda/queue/iostats 1
+    write /sys/block/sdf/queue/nr_requests 128
+    write /sys/block/sdf/queue/iostats 1
+
+    # Enable ZRAM
+    swapon_all /vendor/etc/fstab.qcom
+
+    start qcom-post-boot
+
+service vendor.rmt_storage /vendor/bin/rmt_storage
+    class core
+    user root
+    shutdown critical
+    ioprio rt 0
+
+service vendor.tftp_server /vendor/bin/tftp_server
+   class core
+   user root
+
+service vendor.sensors /vendor/bin/sscrpcd sensorspd
+    class early_hal
+    user system
+    group system wakelock
+    capabilities BLOCK_SUSPEND
+
+service vendor.sensors.qti /vendor/bin/sensors.qti
+    class core
+    user system
+    group system
+    disabled
+
+service vendor.nv_mac /vendor/bin/nv_mac
+    class late_start
+    user system
+    group system inet net_admin wifi net_raw
+    oneshot
+
+service loc_launcher /system/vendor/bin/loc_launcher
+    class late_start
+    user gps
+    group gps
+
+service vendor-sensor-sh /vendor/bin/init.qcom.sensors.sh
+    class core
+    user root
+    oneshot
+    disabled
+
+service mmbn-daemon /vendor/bin/mmbn-daemon
+    class main
+    disabled
+    oneshot
+
+service vendor.vppservice /vendor/bin/vppservice
+    class main
+    user media
+    group camera
+
+service seemp_healthd /vendor/bin/seemp_healthd
+    class late_start
+    user system
+    group system
+
+service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
+    override
+    class hal
+    user audioserver
+    # media gid needed for /dev/fm (radio) and for /data/misc/media (tee)
+    group audio camera drmrpc inet media mediadrm net_bt net_bt_admin net_bw_acct oem_2901 wakelock system
+    capabilities BLOCK_SUSPEND SYS_NICE
+    ioprio rt 4
+    writepid /dev/cpuset/foreground/tasks /dev/stune/foreground/tasks
+    socket audio_hw_socket seqpacket 0666 system system
+    onrestart restart audioserver
+
+service vendor.contexthub-hal-1-0 /vendor/bin/hw/android.hardware.contexthub@1.0-service
+    override
+    class hal
+    interface android.hardware.contexthub@1.0::IContexthub default
+    user system
+    group system
+    disabled
+
+on property:vold.decrypt=trigger_restart_framework
+    restart vendor.audio-hal
+    start vendor-sensor-sh
+
+on boot && property:persist.vendor.usb.controller.default=*
+    setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
+
+on property:vendor.usb.controller=*
+    setprop sys.usb.controller ${vendor.usb.controller}
+
+service vendor.pd_mapper /vendor/bin/pd-mapper
+    class core
+    user system
+    group system
+
+service vendor.per_mgr /vendor/bin/pm-service
+    class core
+    user system
+    group system
+    ioprio rt 4
+
+service vendor.per_proxy /vendor/bin/pm-proxy
+    class core
+    user system
+    group system
+    disabled
+
+on property:init.svc.vendor.per_mgr=running
+    start vendor.per_proxy
+
+on property:sys.shutdown.requested=*
+    stop vendor.per_proxy
+    stop vendor.ims_rtp_daemon
+
+service spdaemon /vendor/bin/spdaemon
+    class core
+    user system
+    group system
+
+service thermal-engine /system/vendor/bin/thermal-engine
+    class main
+    user root
+    socket thermal-send-client stream 0666 system system
+    socket thermal-recv-client stream 0660 system system
+    socket thermal-recv-passive-client stream 0666 system system
+    socket thermal-send-rule stream 0660 system system
+    group root
+
+service ppd /vendor/bin/mm-pp-dpps
+    class late_start
+    user system
+    group system graphics
+    socket pps stream 0660 system system
+    disabled
+
+on property:init.svc.zygote=stopped
+    stop ppd
+
+on property:init.svc.zygote=running
+    start ppd
+
+on property:init.svc.zygote=restarting
+    stop ppd
+
+on property:init.svc.vendor.hwcomposer-2-3=stopped
+    stop ppd
+
+on property:init.svc.vendor.hwcomposer-2-3=running
+    start ppd
+
+on property:init.svc.vendor.hwcomposer-2-3=restarting
+    stop ppd

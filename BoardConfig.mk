@@ -82,6 +82,9 @@ TARGET_USERIMAGES_SPARSE_EXT_DISABLED := false
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/init/fstab.qcom
+
 # Vendor Security patch level
 VENDOR_SECURITY_PATCH := 2020-12-01
 

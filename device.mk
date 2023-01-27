@@ -53,6 +53,16 @@ PRODUCT_VENDOR_PROPERTIES += \
 # Board Platform
 TARGET_BOARD_PLATFORM := sdm845
 
+# Init
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    fstab.qcom.ramdisk \
+    init.target.rc \
+    init.beryllium.rc \
+    init.beryllium.power.rc \
+    init.qcom.sensors.sh \
+    ueventd.beryllium.rc
+
 # Input
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/idc/uinput-fpc.idc:system/usr/idc/uinput-fpc.idc \
@@ -111,6 +121,7 @@ PRODUCT_PACKAGES += \
 TARGET_COMMON_QTI_COMPONENTS := \
     audio \
     bt \
+    init \
     media \
     overlay \
     wlan
