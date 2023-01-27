@@ -72,6 +72,10 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.vendor.dpm.loglevel=0 \
     persist.vendor.dpm.nsrm.bkg.evt=3955
 
+# GPS
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/gps/,$(TARGET_COPY_OUT_VENDOR)/etc)
+
 # Graphics
 PRODUCT_SYSTEM_PROPERTIES += \
     debug.sf.early_app_phase_offset_ns=500000 \
@@ -167,6 +171,7 @@ TARGET_COMMON_QTI_COMPONENTS := \
     audio \
     bt \
     display \
+    gps \
     init \
     media \
     overlay \
