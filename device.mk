@@ -59,10 +59,31 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.vendor.data.mode=concurrent \
     ro.vendor.use_data_netmgrd=true
 
+# Display post-processing
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.qualcomm.cabl=0 \
+    ro.vendor.display.ad=1 \
+    ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
+    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
+    ro.vendor.display.sensortype=2
+
 # DPM
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.vendor.dpm.loglevel=0 \
     persist.vendor.dpm.nsrm.bkg.evt=3955
+
+# Graphics
+PRODUCT_SYSTEM_PROPERTIES += \
+    debug.sf.early_app_phase_offset_ns=500000 \
+    debug.sf.early_gl_app_phase_offset_ns=15000000 \
+    debug.sf.early_gl_phase_offset_ns=3000000 \
+    debug.sf.early_phase_offset_ns=500000 \
+    debug.sf.latch_unsignaled=0 \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
+    ro.surface_flinger.max_virtual_display_dimension=4096 \
+    sdm.debug.disable_inline_rotator=1 \
+    sdm.debug.disable_inline_rotator_secure=1
 
 # IMS
 PRODUCT_SYSTEM_PROPERTIES += \
@@ -145,6 +166,7 @@ PRODUCT_PACKAGES += \
 TARGET_COMMON_QTI_COMPONENTS := \
     audio \
     bt \
+    display \
     init \
     media \
     overlay \

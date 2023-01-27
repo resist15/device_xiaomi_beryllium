@@ -38,6 +38,12 @@ TARGET_SCREEN_DENSITY := 440
 # Gestures
 TARGET_TAP_TO_WAKE_EVENT_NODE  := "/dev/input/event2"
 
+# Graphics
+TARGET_USES_ION := true
+
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+MAX_EGL_CACHE_SIZE := 2048*1024
+
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
 DEVICE_MATRIX_FILE += device/qcom/common/compatibility_matrix.xml
