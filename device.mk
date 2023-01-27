@@ -77,6 +77,10 @@ PRODUCT_COPY_FILES += \
 # Kernel
 TARGET_KERNEL_VERSION := 4.9
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-service.beryllium
+
 # Media
 PRODUCT_SYSTEM_PROPERTIES += \
     debug.stagefright.omx_default_rank.sw-audio=1
