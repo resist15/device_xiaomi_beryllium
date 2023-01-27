@@ -34,6 +34,22 @@ PRODUCT_VENDOR_PROPERTIES += \
     vendor.audio.noisy.broadcast.delay=600 \
     vendor.audio.offload.pstimeout.secs=3 
 
+# Bluetooth
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.bluetooth.a2dp_offload.disabled=false \
+    persist.vendor.bt.a2dp.aac_whitelist=false \
+    persist.vendor.btstack.enable.twsplus=true \
+    persist.vendor.btstack.enable.twsplussho=true \
+    ro.bluetooth.a2dp_offload.supported=true \
+    vendor.bluetooth.soc=cherokee 
+
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.qcom.bluetooth.enable.splita2dp=true \
+    persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac \
+    persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true \
+    persist.vendor.qcom.bluetooth.twsp_state.enabled=false \
+    vendor.qcom.bluetooth.soc=cherokee
+
 # Board Platform
 TARGET_BOARD_PLATFORM := sdm845
 
@@ -94,6 +110,7 @@ PRODUCT_PACKAGES += \
 # QTI common
 TARGET_COMMON_QTI_COMPONENTS := \
     audio \
+    bt \
     media \
     overlay \
     wlan
