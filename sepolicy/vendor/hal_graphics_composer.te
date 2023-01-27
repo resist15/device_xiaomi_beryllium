@@ -1,0 +1,2 @@
+# Rule for bootanim_system_prop
+allow hal_graphics_composer_default bootanim_system_prop:file { getattr open read };

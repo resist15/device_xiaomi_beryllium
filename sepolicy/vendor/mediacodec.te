@@ -1,0 +1,2 @@
+allow mediacodec vendor_audio_prop:file read;
+get_prop(mediacodec, vendor_audio_prop);
