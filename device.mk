@@ -310,6 +310,9 @@ PRODUCT_SYSTEM_PROPERTIES += \
 PRODUCT_PACKAGES += \
     librecovery_updater_xiaomi
 
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.recovery.ui.margin_height=87
+
 # RIL
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.fflag.override.settings_provider_model=false \
