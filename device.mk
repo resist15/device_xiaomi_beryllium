@@ -307,6 +307,10 @@ PRODUCT_SYSTEM_PROPERTIES += \
     ril.subscription.types=NV,RUIM \
     ro.com.android.dataroaming=true
 
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl:64 \
