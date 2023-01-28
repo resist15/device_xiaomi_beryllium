@@ -209,6 +209,27 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.beryllium
 
+# Listen
+PRODUCT_VENDOR_PROPERTIES += \
+    ro.audio.soundtrigger=sva \
+    ro.audio.soundtrigger.lowpower=true \
+    ro.vendor.audio.soundtrigger=sva \
+    ro.vendor.audio.soundtrigger.lowpower=true \
+    ro.vendor.audio.soundtrigger.20.key.level=40 \
+    ro.vendor.audio.soundtrigger.20.user.level=60 \
+    ro.vendor.audio.soundtrigger.20.key.adsp.level=40 \
+    ro.vendor.audio.soundtrigger.20.user.adsp.level=40 \
+    ro.vendor.audio.soundtrigger.gmm.level=50 \
+    ro.vendor.audio.soundtrigger.gmm.user.level=10 \
+    ro.vendor.audio.soundtrigger.cnn.level=27 \
+    ro.vendor.audio.soundtrigger.vop.level=10 \
+    ro.vendor.audio.soundtrigger.gmm.adsp.level=50 \
+    ro.vendor.audio.soundtrigger.gmm.user.adsp.level=10 \
+    ro.vendor.audio.soundtrigger.cnn.adsp.level=27 \
+    ro.vendor.audio.soundtrigger.vop.adsp.level=10 \
+    ro.vendor.audio.soundtrigger.training.level=60 \
+    ro.vendor.audio.soundtrigger.hist.duration=1500
+
 # LMKD
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.lmk.low=1001 \
