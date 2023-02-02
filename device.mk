@@ -388,6 +388,10 @@ PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 # Treble
 PRODUCT_USE_VNDK_OVERRIDE := true
 
+# WiFi Display
+PRODUCT_PACKAGES += \
+    libwfdaac_vendor
+
 # WLAN
 PRODUCT_PACKAGES += \
     libwpa_client 
