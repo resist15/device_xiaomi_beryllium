@@ -869,7 +869,7 @@
     <dimen name="rounded_corner_content_padding">2dp</dimen>
     
     <!-- Statusbar Icon Size -->
-    <dimen name="status_bar_icon_size">16dp</dimen>
+    <dimen name="status_bar_icon_size">18dp</dimen>
 
     <!-- Enable Zram writeback feature to allow unused pages in zram be written to flash. -->
     <bool name="config_zramWriteback">true</bool>    
