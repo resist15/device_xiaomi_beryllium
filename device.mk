@@ -74,9 +74,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
 PRODUCT_PACKAGES += \
     libsuspend
 
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.charger.enable_suspend=true
-
 # Context Hub
 PRODUCT_PACKAGES += \
     android.hardware.contexthub@1.0-impl.generic \
