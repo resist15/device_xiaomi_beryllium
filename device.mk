@@ -382,7 +382,6 @@ PRODUCT_SHIPPING_API_LEVEL := 27
 
 # SOC
 PRODUCT_VENDOR_PROPERTIES += \
-    ro.soc.manufacturer=Qualcomm \
     ro.soc.model=SDM845
 
 # Setup dalvik vm configs
