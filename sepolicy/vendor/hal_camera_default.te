@@ -18,5 +18,5 @@ get_prop(hal_camera_default, vendor_persist_camera_prop)
 
 userdebug_or_eng(`
   get_prop(hal_camera_default, camera_dbg_prop)
-  get_prop(hal_camera_default, sensors_dbg_prop)
+  get_prop(hal_camera_default, vendor_sensors_dbg_prop)
 ')

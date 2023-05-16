@@ -40,14 +40,8 @@ persist.cpu.thermal.profile                   u:object_r:cputhermal_prop:s0
 persist.cpu.performance.profile               u:object_r:cpuperf_prop:s0
 restart.perf.service                          u:object_r:perfservice_prop:s0
 
-# Qspmhal
-ro.vendor.qspm.enable                    u:object_r:vendor_qspm_prop:s0
-
 # Sensors
 persist.sensor.sardisable  u:object_r:vendor_sensors_prop:s0
-
-# SLM
-persist.vendor.slm.        u:object_r:vendor_slm_prop:s0
 
 # Thermal
 persist.sys.thermal.       u:object_r:thermal_engine_prop:s0

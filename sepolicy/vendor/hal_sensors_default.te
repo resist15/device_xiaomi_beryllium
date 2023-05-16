@@ -8,5 +8,5 @@ get_prop(hal_sensors_default, vendor_adsprpc_prop)
 get_prop(hal_sensors_default, vendor_sensors_prop)
 
 userdebug_or_eng(`
-  get_prop(hal_sensors_default, sensors_dbg_prop)
+  get_prop(hal_sensors_default, vendor_sensors_dbg_prop)
 ')

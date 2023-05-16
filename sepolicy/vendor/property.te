@@ -1,15 +1,11 @@
-vendor_internal_prop(camera_dbg_prop);
-vendor_internal_prop(camera_ro_prop);
+vendor_internal_prop(camera_dbg_prop)
+vendor_internal_prop(camera_ro_prop)
 
-vendor_internal_prop(thermal_engine_prop);
+vendor_internal_prop(thermal_engine_prop)
 
-vendor_internal_prop(vendor_dpps_prop);
+vendor_internal_prop(vendor_dpps_prop)
 
-vendor_public_prop(vendor_fp_prop);
-
-vendor_public_prop(vendor_slm_prop);
-
-vendor_public_prop(vendor_qspm_prop);
+vendor_public_prop(vendor_fp_prop)
 
 vendor_public_prop(cputhermal_prop);
 vendor_public_prop(cpuperf_prop);
@@ -29,4 +25,3 @@ not_compatible_property(`
     system_public_prop(defaultperf_prop)
     system_public_prop(perfservice_prop)
 ')
-
