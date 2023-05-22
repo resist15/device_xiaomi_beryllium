@@ -31,6 +31,15 @@ ro.boot.hwversion          u:object_r:exported_default_prop:s0
 ro.carrier.name            u:object_r:exported_default_prop:s0
 ro.miui.cust_variant       u:object_r:exported_default_prop:s0
 
+# MI Extras
+persist.thermal.profile                       u:object_r:thermal_prop:s0
+persist.performance.profile                   u:object_r:perf_prop:s0
+persist.therm.default                         u:object_r:defaultthermal_prop:s0
+persist.perf.default                          u:object_r:defaultperf_prop:s0
+persist.cpu.thermal.profile                   u:object_r:cputhermal_prop:s0
+persist.cpu.performance.profile               u:object_r:cpuperf_prop:s0
+restart.perf.service                          u:object_r:perfservice_prop:s0
+
 # Qspmhal
 ro.vendor.qspm.enable                    u:object_r:vendor_qspm_prop:s0
 

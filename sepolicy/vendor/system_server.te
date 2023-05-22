@@ -4,3 +4,14 @@ get_prop(system_server, vendor_display_notch_prop)
 
 # Allow system_server to access Qspmhal
 get_prop(system_server, vendor_qspm_prop)
+
+set_prop(system_server, defaultthermal_prop)
+get_prop(system_server, defaultthermal_prop)
+set_prop(system_server, defaultperf_prop)
+get_prop(system_server, defaultperf_prop)
+set_prop(system_server, perfservice_prop)
+get_prop(system_server, perfservice_prop)
+set_prop(system_server, thermal_prop);
+get_prop(system_server, thermal_prop);
+set_prop(system_server, perf_prop);
+get_prop(system_server, perf_prop);

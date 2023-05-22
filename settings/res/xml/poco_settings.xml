@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="vibration"
+        android:title="@string/vibration_title">
+
+        <com.xiaomi.settings.VibratorStrengthPreference
+            android:defaultValue="80"
+            android:key="vibration_strength"
+            android:icon="@drawable/ic_vibrate"
+            android:title="@string/system_strength_title" />
+
+    <com.xiaomi.settings.SecureSettingListPreference
+        android:key="vib_waveform"
+        android:icon="@drawable/ic_wave"        
+        android:title="@string/vib_waveform_title"
+        android:entries="@array/vib_waveform_listentries"
+        android:entryValues="@array/vib_waveform_listvalues"
+        android:defaultValue="1"
+        android:summary="%s" />
+        
+    </PreferenceCategory>
+
+   <PreferenceCategory
+        android:key="default_profiles"
+        android:title="@string/default_profiles_title">
+
+        <com.xiaomi.settings.SecureSettingListPreference
+        android:key="default_perf_profile"
+        android:title="@string/app_profile_performance_title"
+        android:entries="@array/default_perf_listentries"
+        android:entryValues="@array/default_perf_listvalues" 
+        android:icon="@drawable/ic_perf"
+        android:defaultValue="0"
+        android:summary="%s"/>
+
+        <com.xiaomi.settings.SecureSettingListPreference
+         android:key="default_therm_profile"
+         android:title="@string/app_profile_thermal_title"
+         android:entries="@array/default_therm_listentries"
+         android:icon="@drawable/ic_thermal"
+         android:entryValues="@array/default_therm_listvalues"
+         android:defaultValue="0"
+         android:summary="%s" />          
+
+    </PreferenceCategory>  
+    
+  <PreferenceCategory
+        android:title="@string/perapp_title">
+
+   <PreferenceScreen
+        android:key="perf_display"
+        android:fragment="com.xiaomi.settings.PerformanceActivity"
+        android:icon="@drawable/ic_perf"       
+        android:summary="@string/performance_summary"
+        android:title="@string/performance_title" />
+        
+  <PreferenceScreen
+        android:key="therm_display"
+        android:fragment="com.xiaomi.settings.ThermalActivity"
+         android:icon="@drawable/ic_thermal"
+        android:summary="@string/thermal_summary"
+        android:title="@string/thermal_title" />
+
+   </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="display"
+        android:title="@string/display_title">
+
+       <SwitchPreference
+            android:key="fps_info"
+            android:icon="@drawable/ic_fps"
+            android:title="@string/fps_info_title"
+            android:summary="@string/fps_info_summary"
+            android:persistent="false" />
+
+        <Preference
+        android:key="device_kcal"
+        android:persistent="false"
+        android:icon="@drawable/ic_kcal"
+        android:title="@string/device_kcal_title"
+        android:summary="@string/kcal_enabled_summary">
+        <intent
+        android:action="android.intent.action.MAIN"
+        android:targetClass="com.xiaomi.settings.kcal.KCalSettingsActivity"
+        android:targetPackage="com.xiaomi.settings.kcal" />
+      </Preference>
+  </PreferenceCategory>
+  
+</PreferenceScreen>

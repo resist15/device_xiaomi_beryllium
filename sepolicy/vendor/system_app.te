@@ -1,0 +1,23 @@
+#PocoPref
+set_prop(system_app, thermal_prop);
+get_prop(system_app, thermal_prop);
+set_prop(system_app, perf_prop);
+get_prop(system_app, perf_prop);
+set_prop(system_app, defaultthermal_prop);
+get_prop(system_app, defaultthermal_prop);
+set_prop(system_app, defaultperf_prop);
+get_prop(system_app, defaultperf_prop);
+set_prop(system_app, perfservice_prop);
+get_prop(system_app, perfservice_prop);
+
+#KCAL
+allow system_app kcal_dev:file rw_file_perms;
+allow system_app kcal_dev:dir search;
+
+#Vibrator
+allow system_app sysfs_vibrator:file rw_file_perms;
+allow system_app sysfs_vibrator:dir search;
+
+#FPS Tile
+allow system_app sysfs_graphics:file rw_file_perms;
+allow system_app sysfs_graphics:dir search;

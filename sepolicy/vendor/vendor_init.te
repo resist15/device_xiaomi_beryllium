@@ -4,3 +4,14 @@ get_prop(vendor_init, persist_debug_prop)
 allow vendor_init sysfs_ssr_toggle:file w_file_perms;
 
 allow vendor_init proc_sysctl_autogroup:file w_file_perms;
+
+# MI Extras
+set_prop(vendor_init, cpuperf_prop)
+set_prop(vendor_init, cputhermal_prop)
+get_prop(vendor_init, cpuperf_prop)
+get_prop(vendor_init, cputhermal_prop)
+get_prop(vendor_init, thermal_prop)
+get_prop(vendor_init, perf_prop)
+get_prop(vendor_init, defaultthermal_prop)
+get_prop(vendor_init, defaultperf_prop)
+get_prop(vendor_init, perfservice_prop)

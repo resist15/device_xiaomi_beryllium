@@ -1,1 +1,4 @@
 allow platform_app hal_embmssl_hwservice:hwservice_manager find;
+
+get_prop(platform_app, cpuperf_prop)
+get_prop(platform_app, cputhermal_prop)

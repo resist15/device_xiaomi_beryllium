@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2015 The CyanogenMod Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <string name="pocopref_title">MI Extras</string>
+    <string name="cannot_get_su">Action failed because of missing superuser access</string>    
+
+     <!-- thermal Profiles -->
+    <string name="thermal_title">Thermal Profiles</string>
+    <string name="thermal_summary">Choose your per-app thermal profile</string>
+
+     <!-- Perf Profiles -->
+    <string name="performance_title">Performance Profiles</string>
+    <string name="performance_summary">Choose your per-app performance profile</string>
+    <string name="perapp_title">Per-App Profiles</string>
+    	
+     <!-- Per app Profile Strings -->
+    <string name="default_profiles_title">Default profiles</string>
+    <string name="app_profile_performance_title">Performance profile</string>  
+    <string name="app_profile_thermal_title">Thermal profile</string>  
+    <string name="performance_default">Default</string>
+    <string name="performance_balance">Balanced</string>
+    <string name="performance_balanced2">Balanced-V2</string>  
+    <string name="performance_battery">Battery</string>
+    <string name="performance_performance">Performance</string>
+    <string name="performance_gaming">Gaming</string>
+    <string name="performance_benchmark">Performance</string>
+	
+    <!-- Thermal profiles -->
+    <string name="thermal_default">Default</string>
+    <string name="thermal_balance">Balance</string> 
+    <string name="thermal_benchmark">Gaming 2</string>
+    <string name="thermal_browser">Cool</string>
+    <string name="thermal_camera">Camera</string>
+    <string name="thermal_dialer">No Limits</string>
+    <string name="thermal_gaming">Gaming</string>
+    <string name="thermal_youtube">Balanced 2</string> 
+
+    <!-- Category title -->
+    <string name="display_title">Display</string>
+
+    <!-- KCal -->
+    <string name="device_kcal_title">Display Color Calibration</string>
+    <string name="kcal_enabled_summary">Calibrate Display Using KCAL</string>
+
+    <!-- kcal -->
+    <string name="advanced_settings_kcal">Display Color Calibration</string>
+    <string name="cat_colormanagement">Color Settings</string>
+    <string name="cat_calibration">Display Calibration</string>
+    <string name="kcal_enabled_title">Enable KCAL</string>
+    <string name="set_on_boot">Set On Boot</string>
+    <string name="color_red">Red</string>
+    <string name="color_green">Green</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_minimum">Minimum</string>
+    <string name="saturation">Saturation</string>
+    <string name="value">Value</string>
+    <string name="contrast">Contrast</string>
+    <string name="hue">Hue</string>
+    <string name="grayscale">Grayscale Display</string>
+    <string name="presets_dialog_title">Select Preset</string>
+
+    <!-- Presets -->
+    <string name="preset_default">Default</string>
+    <string name="preset_version_1">Version 1</string>
+    <string name="preset_version_2">Version 2</string>
+    <string name="preset_version_3">Version 3</string>
+    <string name="preset_triluminous">Triluminous</string>
+    <string name="preset_deep_black_white">Deep Black and White</string>
+    <string name="preset_deep_natural">Deep Natural</string>
+    <string name="preset_cool_amoled">Cool Amoled</string>
+    <string name="preset_extreme_amoled">Extreme Amoled</string>
+    <string name="preset_warm_amoled">Warm Amoled</string>
+    <string name="preset_hybrid_mamba">Hybrid Mamba</string>
+    <string name="preset_sir_banger">Sir Banger</string>
+    <string name="preset_gerard_extrem_cool">Gerard Extreme Cool</string>
+    <string name="preset_yoyoz808">Yoyoz808</string>
+    <string name="preset_purian">Purian</string>
+    <string name="preset_deep_black_colorful">Deep Black Colorful</string>
+    <string name="preset_vomer_deep_rich">Vomer Deep Rich</string>
+    <string name="preset_franco">Franco</string>
+    <string name="preset_wrinklefree_cool">WrinkleFree Cool</string>
+    <string name="preset_harley_tech">Harley-Tech</string>
+    <string name="preset_perfection">Perfection</string>
+    <string name="preset_banged_up">Banged up</string>
+    <string name="preset_sim_cooler">SimCooler</string>
+    <string name="preset_obsanity">Obsanity</string>
+    <string name="preset_obsanity_ips">Obsanity IPS</string>
+
+    <!-- Menu -->
+    <string name="kcal_presets" translatable="false">@string/presets_dialog_title</string>
+    <string name="kcal_reset">Reset</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Value: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Default</string>
+    <string name="custom_seekbar_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong press to set</string>
+    <string name="custom_seekbar_default_value_is_set">Default value is set</string>	
+
+    <!-- Label for feature switch -->
+    <string name="switch_bar_on">On</string>
+
+    <!-- Label for feature switch -->
+    <string name="switch_bar_off">Off</string>
+
+    <!-- Vibration Preferences -->
+    <string name="vibration_title">Vibration Strength</string>
+    <string name="system_strength_title">Call and Notification</string>
+
+     <string name="vib_waveform_title">Vibration Wave Patterns</string>    
+     <string name="vib_waveform_1">default</string>
+     <string name="vib_waveform_2">1e 1e 0 0 0 0 0 0</string>
+     <string name="vib_waveform_3">1e 1e 1e 0 0 0 0 0</string>
+     <string name="vib_waveform_4">1e 1e 1e 1e 0 0 0 0</string>
+     <string name="vib_waveform_5">1e 1e 1e 1e 1e 0 0 0</string>
+     <string name="vib_waveform_6">3e 3e 0 0 0 0 0 0</string>
+     <string name="vib_waveform_7">3e 3e 3e 0 0 0 0 0</string> 
+     <string name="vib_waveform_8">3e 3e 3e 3e  0 0 0 0</string>
+     <string name="vib_waveform_9">3e 3e 3e 3e  3e 0 0 0</string>     
+     <string name="vib_waveform_10">7e 7e 0 0 0 0 0 0</string>
+     <string name="vib_waveform_11">7e 7e 7e 0 0 0 0 0</string>     
+     <string name="vib_waveform_12">7e 7e 7e 7e 0 0 0 0</string>
+     <string name="vib_waveform_13">7e 7e 7e 7e 7e 0 0 0</string>                               
+
+     <!-- FPS Counter -->
+     <string name="fps_info_title">FPS Counter</string>
+     <string name="fps_info_summary">FPS Info Overlay Toggle</string>
+
+    <!-- Ambient settings -->
+    <string name="ambient_enable">Use ambient display</string>
+    <string name="doze_summary">Advanced Ambient Display Preferences</string>
+
+
+    <!-- Dirac settings -->
+    <string name="dirac_enable">Enable Mi Sound</string>
+    <string name="dirac_title">Mi Sound Enhancer</string>
+    <string name="dirac_summary">Optimize audio quality</string>
+    <string name="dirac_headset_title">Choose headphones type</string>
+    <string name="dirac_preset_title">Choose a preset</string>
+
+    <!-- Dirac settings: Headset types -->
+    <string name="dirac_headset_default">Default</string>
+    <string name="dirac_headset_earbuds">Mi Earbuds</string>
+    <string name="dirac_headset_in_ear_2013">Mi In-Ear (2013)</string>
+    <string name="dirac_headset_piston_1">Mi Piston-1</string>
+    <string name="dirac_headset_general">General</string>
+    <string name="dirac_headset_general_inear">General In-Ear</string>
+    <string name="dirac_headset_piston_basic">Basic Edition</string>
+    <string name="dirac_headset_piston_2">Mi Piston-2</string>
+    <string name="dirac_headset_piston_standard">Standard Edition</string>
+    <string name="dirac_headset_headphone">Mi Headphones</string>
+    <string name="dirac_headset_piston_youth">Youth Edition</string>
+    <string name="dirac_headset_piston_color">Color Edition</string>
+    <string name="dirac_headset_in_ear">Mi In-Ear</string>
+    <string name="dirac_headset_capsule">Mi Capsule</string>
+    <string name="dirac_headset_in_ear_pro">Mi In-Ear Pro</string>
+    <string name="dirac_headset_comfort">Mi Comfort</string>
+    <string name="dirac_headset_reduction_noise">Mi Noise Cancelling Type-C</string>
+    <string name="dirac_headset_cancelling">Mi Noise Cancelling 3.5mm</string>
+    <string name="dirac_headset_half_in_ear">Mi Half In-Ear</string>
+    <string name="dirac_headset_in_ear2">Mi In-Ear 2</string>
+    <string name="dirac_headset_earphone_basic">Mi Earphones Basic</string>
+    <string name="dirac_headset_earphone">Mi Earphones</string>
+
+    <!-- Dirac settings: Equalizer presets -->
+    <string name="dirac_preset_default">Default</string>
+    <string name="dirac_preset_rock">Rock</string>
+    <string name="dirac_preset_jazz">Jazz</string>
+    <string name="dirac_preset_pop">Pop</string>
+    <string name="dirac_preset_classical">Classical</string>
+    <string name="dirac_preset_hiphop">Hip Hop</string>
+    <string name="dirac_preset_blues">Blues</string>
+    <string name="dirac_preset_electronic">Electronic</string>
+    <string name="dirac_preset_country">Country</string>
+    <string name="dirac_preset_dance">Dance</string>
+    <string name="dirac_preset_metal">Metal</string>
+    <string name="dirac_preset_bass_booster">Bass Booster</string>
+    <string name="dirac_preset_live">Live</string>
+    <string name="dirac_preset_balanced">Balanced</string>
+    <string name="dirac_preset_bass_reduction">Bass Reduction</string>
+    <string name="dirac_preset_treble_reduction">Treble Reduction</string>
+    <string name="dirac_preset_soft_bass">Soft Bass</string>
+    <string name="dirac_preset_soft_treble">Soft Treble</string>
+
+    <!-- Dirac : QS tile  -->
+    <string name="dirac_qs_tile_title">Dirac sound</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+
+     <!-- Raise to wake strings-->
+    <string name="raise_to_wake_gesture_title">Raise to wake</string>
+    <string name="raise_to_wake_gesture_summary">Wake up the device instead of pulsing notification</string>
+    
+     <!-- Clear Speaker -->
+    <string name="clear_speaker_title">Clear speaker</string>
+    <string name="clear_speaker_summary">Play a 30-second audio to clear the speaker</string>
+    <string name="clear_speaker_description">Run this feature once or twice if you find that your speaker is lightly blocked by dust. Set media volume to maximum.\n\nIf the speaker is blocked heavily, run this feature 2-5 times while shaking your device with the speaker facing downwards.\n\nWARNING: Ensure that any headphones are unplugged.</string>
+
+</resources>

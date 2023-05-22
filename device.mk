@@ -252,6 +252,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_SYSTEM_PROPERTIES += \
     debug.stagefright.omx_default_rank.sw-audio=1
 
+# MI Extras
+PRODUCT_PACKAGES += \
+    XiaomiSettings
+
 # Native libraries whitelist
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt

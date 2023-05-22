@@ -31,6 +31,23 @@ on boot
     chown cameraserver root /sys/class/thermal/thermal_message/boost
     chmod 0664 /sys/class/thermal/thermal_message/boost
 
+    # KCAL
+    chown system system /sys/module/msm_drm/parameters/kcal_red
+    chown system system /sys/module/msm_drm/parameters/kcal_green
+    chown system system /sys/module/msm_drm/parameters/kcal_blue
+    chown system system /sys/module/msm_drm/parameters/kcal_sat
+    chown system system /sys/module/msm_drm/parameters/kcal_hue
+    chown system system /sys/module/msm_drm/parameters/kcal_cont
+    chown system system /sys/module/msm_drm/parameters/kcal_val
+
+    chmod 0660 /sys/module/msm_drm/parameters/kcal_red
+    chmod 0660 /sys/module/msm_drm/parameters/kcal_green
+    chmod 0660 /sys/module/msm_drm/parameters/kcal_blue
+    chmod 0660 /sys/module/msm_drm/parameters/kcal_sat
+    chmod 0660 /sys/module/msm_drm/parameters/kcal_hue
+    chmod 0660 /sys/module/msm_drm/parameters/kcal_cont
+    chmod 0660 /sys/module/msm_drm/parameters/kcal_val   
+
 service remosaic_daemon /vendor/bin/remosaic_daemon
     class late_start
     user camera

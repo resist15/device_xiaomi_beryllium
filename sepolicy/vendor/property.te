@@ -10,3 +10,23 @@ vendor_public_prop(vendor_fp_prop);
 vendor_public_prop(vendor_slm_prop);
 
 vendor_public_prop(vendor_qspm_prop);
+
+vendor_public_prop(cputhermal_prop);
+vendor_public_prop(cpuperf_prop);
+
+compatible_property_only(`
+    system_restricted_prop(thermal_prop)
+    system_restricted_prop(perf_prop)
+    system_restricted_prop(defaultthermal_prop)
+    system_restricted_prop(defaultperf_prop)
+    system_restricted_prop(perfservice_prop)
+')
+
+not_compatible_property(`
+    system_public_prop(thermal_prop)
+    system_public_prop(perf_prop)
+    system_public_prop(defaultthermal_prop)
+    system_public_prop(defaultperf_prop)
+    system_public_prop(perfservice_prop)
+')
+
