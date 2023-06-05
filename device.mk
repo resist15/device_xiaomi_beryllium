@@ -70,10 +70,6 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.vendor.camera.perfcapture=1 \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,co.aospa.sense
 
-# Charger
-PRODUCT_PACKAGES += \
-    libsuspend
-
 # Context Hub
 PRODUCT_PACKAGES += \
     android.hardware.contexthub@1.0-impl.generic \
@@ -152,11 +148,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     ro.hardware.egl=adreno \
     ro.hardware.vulkan=adreno \
     ro.opengles.version=196610
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@2.1-impl-qti \
-    android.hardware.health@2.1-service
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -322,6 +313,7 @@ TARGET_COMMON_QTI_COMPONENTS += \
     audio \
     av \
     bt \
+    charging \
     display \
     gps \
     init \
